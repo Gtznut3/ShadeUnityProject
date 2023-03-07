@@ -48,7 +48,6 @@ public class EndlessWorld : MonoBehaviour
 
                     if (WorldDictionary.ContainsKey(PlanePos))
                     {
-                        Debug.Log("Je suis dans le dico");
                         WorldDictionary[PlanePos].UpdateWorld();
                         if (WorldDictionary[PlanePos].IsVisible())
                         {

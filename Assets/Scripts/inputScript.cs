@@ -27,7 +27,7 @@ public class inputScript : MonoBehaviour
     {
         List<MovementInput> keyCodes = new List<MovementInput>();
 
-        if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             keyCodes.Add(MovementInput.Forward);
         }
@@ -35,7 +35,7 @@ public class inputScript : MonoBehaviour
         {
             keyCodes.Add(MovementInput.Left);
         }
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             keyCodes.Add(MovementInput.Backward);
         }

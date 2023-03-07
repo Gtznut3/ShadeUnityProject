@@ -48,7 +48,6 @@ public class EndlessWorld : MonoBehaviour
 
                     if (WorldDictionary.ContainsKey(PlanePos))
                     {
-                        Debug.Log("Je suis dans le dico");
                         WorldDictionary[PlanePos].UpdateWorld();
                         if (WorldDictionary[PlanePos].IsVisible())
                         {
@@ -61,10 +60,6 @@ public class EndlessWorld : MonoBehaviour
                         {
                         if ((Mathf.Sqrt(Mathf.Pow((PlanePos.x - SpawnBoatPosition.x), 2) + Mathf.Pow((PlanePos.y - SpawnBoatPosition.y), 2))) <= (Size * 1))
                             {
-                                /*Debug.Log(PlanePos);
-                                Debug.Log(Size);
-                                Debug.Log(NbrIslandRessource);
-                                Debug.Log(NbrIslandCivilisation);*/
                                 WorldDictionary.Add(PlanePos, new GenerationWorld(PlanePos, Size, NbrIslandRessource, NbrIslandCivilisation));
                                 NbrIslandRessource++;
                                 NbrIslandCivilisation++;
@@ -87,7 +82,6 @@ public class EndlessWorld : MonoBehaviour
         Bounds boundsPlane;
         public GenerationWorld(Vector2 coord, int size, int NbrIslandRessource, int NbrIslandCivilisation)
         {
-            Debug.Log("genere map");
             PositionPlane = coord * size;
             boundsPlane = new Bounds(PositionPlane, Vector2.one * size);
             Vector3 PositionV3Plane = new Vector3(PositionPlane.x, 0, PositionPlane.y);
@@ -109,7 +103,6 @@ public class EndlessWorld : MonoBehaviour
         }
         private void CreatIslandHuman(int NbrIslandCivilisation)
         {
-            Debug.Log("Civilisation Island");
             GameObject IslandPrefab = Resources.Load<GameObject>("Civilisation Island");
             Vector3 PositionV3Island = new Vector3(PositionPlane.x, 0f, PositionPlane.y);
             GameObject IsleObject = Instantiate(IslandPrefab);

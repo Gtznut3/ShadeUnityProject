@@ -14,12 +14,14 @@ public class EndlessWorld : MonoBehaviour
     int VisibleDst;
     private int NbrIslandRessource = 0;
     private int NbrIslandCivilisation = 0;
+    int NbrWithoutIsland = 0;
 
     Dictionary<Vector2, GenerationWorld> WorldDictionary = new Dictionary<Vector2, GenerationWorld>();
     List<GenerationWorld> WorldListVisibleUpdate = new List<GenerationWorld>();
 
     void Start()
     {
+        //Mathf.PerlinNoise()
         SpawnBoatPosition = new Vector2(PosBoat.position.x, PosBoat.position.z);
         VisibleDst = Mathf.RoundToInt(Size / MaxView);
         Random.InitState(SeedValue);
@@ -46,30 +48,33 @@ public class EndlessWorld : MonoBehaviour
                 {
                     Vector2 PlanePos = new Vector2(CurrentPLaneX + Xoffset, CurrentPLaneY + Yoffset);
 
-                    if (WorldDictionary.ContainsKey(PlanePos))
+                if (WorldDictionary.ContainsKey(PlanePos))
+                {
+                    WorldDictionary[PlanePos].UpdateWorld();
+                    if (WorldDictionary[PlanePos].IsVisible())
                     {
-                        WorldDictionary[PlanePos].UpdateWorld();
-                        if (WorldDictionary[PlanePos].IsVisible())
-                        {
-                            WorldListVisibleUpdate.Add(WorldDictionary[PlanePos]);
-                        }
+                        WorldListVisibleUpdate.Add(WorldDictionary[PlanePos]);
                     }
-                    else
+                }
+                else
+                {
+                    try
                     {
-                        try
+                        if (NbrWithoutIsland == 0)
                         {
-                        if ((Mathf.Sqrt(Mathf.Pow((PlanePos.x - SpawnBoatPosition.x), 2) + Mathf.Pow((PlanePos.y - SpawnBoatPosition.y), 2))) <= (Size * 1))
+                            if ((Mathf.Sqrt(Mathf.Pow((PlanePos.x - SpawnBoatPosition.x), 2) + Mathf.Pow((PlanePos.y - SpawnBoatPosition.y), 2))) <= (Size * 1))
                             {
                                 WorldDictionary.Add(PlanePos, new GenerationWorld(PlanePos, Size, NbrIslandRessource, NbrIslandCivilisation));
                                 NbrIslandRessource++;
                                 NbrIslandCivilisation++;
+                                NbrWithoutIsland = 6;
                             }
-                            
-
-                        }
-                        catch
-                        {
-                        }
+                        } else
+                            NbrWithoutIsland--;
+                    }
+                    catch
+                    {
+                    }
                     }
                 }
             }
@@ -77,9 +82,16 @@ public class EndlessWorld : MonoBehaviour
     public class GenerationWorld
     {
         GameObject PlaneObject;
+        GameObject IsleCivilisationObject;
+        GameObject IsleRessourceObject;
+        GameObject RockObject;
         GameObject PlanePrefab = Resources.Load<GameObject>("Plane");
+        GameObject IslandCivilisationPrefab = Resources.Load<GameObject>("Civilisation Island");
+        GameObject IslandRessourcePrefab = Resources.Load<GameObject>("Ressources Island");
+        GameObject RockPrefab;
         Vector2 PositionPlane;
         Bounds boundsPlane;
+
         public GenerationWorld(Vector2 coord, int size, int NbrIslandRessource, int NbrIslandCivilisation)
         {
             PositionPlane = coord * size;
@@ -89,35 +101,52 @@ public class EndlessWorld : MonoBehaviour
             PlaneObject = Instantiate(PlanePrefab);
             PlaneObject.transform.position = PositionV3Plane;
             SetVisible(false);
+
             switch(Random.Range(0, 500))
             {
-                case >498:
+                case >497:
                     CreatIslandHuman(NbrIslandCivilisation);
                     break;
-                case <1:
+                case <2:
                     CreatIslandRessource(NbrIslandRessource);
+                    break;
+                case <20:
+                    CreatRock();
                     break;
                 default:
                     break;
             }
         }
-        private void CreatIslandHuman(int NbrIslandCivilisation)
+        public void CreatIslandHuman(int NbrIslandCivilisation)
         {
-            GameObject IslandPrefab = Resources.Load<GameObject>("Civilisation Island");
             Vector3 PositionV3Island = new Vector3(PositionPlane.x, 0f, PositionPlane.y);
-            GameObject IsleObject = Instantiate(IslandPrefab);
-            IsleObject.name = "Civilisation Island " + NbrIslandCivilisation;
-            IsleObject.transform.position = PositionV3Island;
+            IsleCivilisationObject = Instantiate(IslandCivilisationPrefab);
+            IsleCivilisationObject.name = "Civilisation Island " + NbrIslandCivilisation;
+            IsleCivilisationObject.transform.position = PositionV3Island;
         }
-        private void CreatIslandRessource(int NbrIslandRessource)
+        public void CreatIslandRessource(int NbrIslandRessource)
         {
             //GameObject IsleObject;
-            GameObject IslandPrefab = Resources.Load<GameObject>("Ressources Island");
             Vector3 PositionV3Island = new Vector3(PositionPlane.x, 0f, PositionPlane.y);
-            GameObject IsleObject = Instantiate(IslandPrefab);
-            IsleObject.name = "Island Ressource " + NbrIslandRessource;
-            IsleObject.transform.position = PositionV3Island;
+            IsleRessourceObject = Instantiate(IslandRessourcePrefab);
+            IsleRessourceObject.name = "Island Ressource " + NbrIslandRessource;
+            IsleRessourceObject.transform.position = PositionV3Island;
 
+        }
+        public void CreatRock()
+        {
+            switch (Random.Range(0, 100))
+            {
+                case > 50:
+                    RockPrefab = Resources.Load<GameObject>("Rock");
+                    break;
+                default:
+                    RockPrefab = Resources.Load<GameObject>("Rock1");
+                    break;
+            }
+            Vector3 PositionV3Island = new Vector3(PositionPlane.x, 0f, PositionPlane.y);
+            RockObject = Instantiate(RockPrefab);
+            RockObject.transform.position = PositionV3Island;
         }
         public void UpdateWorld()
         {
@@ -129,7 +158,9 @@ public class EndlessWorld : MonoBehaviour
         public void SetVisible(bool visible)
         {
             PlaneObject.SetActive(visible);
-            //IsleObject.SetActive(visible);
+            //RockObject.SetActive(visible);
+/*            IsleCivilisationObject.SetActive(visible);
+            IsleRessourceObject.SetActive(visible);*/
         }
 
         public bool IsVisible()

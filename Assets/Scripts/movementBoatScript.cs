@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Engine.Utils;
 using static inputScript;
 
 public class movementBoatScript : MonoBehaviour, AbleToPause

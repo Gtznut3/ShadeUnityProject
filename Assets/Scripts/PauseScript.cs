@@ -1,37 +1,45 @@
+using System;
+using Engine.Utils;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class PauseScript : MonoBehaviour
+
+public class PauseScript : Singleton<PauseScript>
 {
     GameObject[] allObjects;
     GameObject canvasPause;
 
     bool isPause = false;
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         canvasPause = GameObject.Find("PauseMenuCanvas");
         canvasPause.SetActive(false);
+
+
+        EventManager.Instance.OnMap += Pause;
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();
+            ShowPauseMenu();
         }
     }
 
     public void Pause()
     {
+        Debug.Log("pause");
         allObjects = FindObjectsOfType<GameObject>();
         isPause = !isPause;
 
         PauseAction();
-        ShowPauseMenu();
     }
 
     void PauseAction()

@@ -251,6 +251,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &257222427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4989117826060649366, guid: d740dfb0fc357fb459554147ac39e93f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1361763115}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &279895652
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camBoat: {fileID: 330585543}
   camMap: {fileID: 1039097653}
+  miniMap: {fileID: 257222427}
 --- !u!114 &749868731
 MonoBehaviour:
   m_ObjectHideFlags: 0

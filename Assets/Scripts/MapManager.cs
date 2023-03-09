@@ -16,6 +16,8 @@ public class MapManager : Engine.Utils.Singleton<MapManager>
     [SerializeField] private GameObject camBoat;
     [SerializeField] private GameObject camMap;
 
+    [SerializeField] private GameObject miniMap;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -38,10 +40,12 @@ public class MapManager : Engine.Utils.Singleton<MapManager>
     void showMap()
     {
         mapIsOpen = !mapIsOpen;
+
         getAllIcons();
 
-        camBoat.SetActive(!mapIsOpen);
-        camMap.SetActive(mapIsOpen);
+        SwitchCamera();
+
+        showMiniMap();
 
         if (lastShowMap + 0.1f < Time.time)
         {
@@ -49,18 +53,15 @@ public class MapManager : Engine.Utils.Singleton<MapManager>
             {
                 if (mapIsOpen)
                 {
-                    Debug.Log(icon.rectTransform.localScale);
-                    icon.rectTransform.localScale *= 10f;
-                    Debug.Log(icon.rectTransform.localScale);
+                    icon.rectTransform.localScale *= 2f;
                 }
                 else 
-                    icon.rectTransform.localScale *= 0.1f;
+                    icon.rectTransform.localScale *= 0.5f;
             }
 
             lastShowMap = Time.time;
         }
 
-        SwitchCamera();
     }
 
     void getAllIcons()
@@ -69,7 +70,6 @@ public class MapManager : Engine.Utils.Singleton<MapManager>
 
         foreach (Image icon in FindObjectsOfType<Image>())
         {
-            Debug.Log(icon);
             if (icon != null && icon.tag == "Icon")
             {
                 iconList.Add(icon);
@@ -79,6 +79,12 @@ public class MapManager : Engine.Utils.Singleton<MapManager>
 
     void SwitchCamera()
     {
+        camBoat.SetActive(!mapIsOpen);
+        camMap.SetActive(mapIsOpen);
+    }
 
+    void showMiniMap()
+    {
+        miniMap.SetActive(!mapIsOpen);
     }
 }

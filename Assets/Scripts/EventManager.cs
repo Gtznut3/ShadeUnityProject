@@ -22,19 +22,6 @@ public class EventManager : Singleton<EventManager>
 
     public void LaunchOnMapOpen()
     {
-        Debug.Log("ugurbg");
         _onMap?.Invoke();
-    }
-
-    public void LaunchOnMapClose()
-    {
-        Debug.Log("zdzdzdzdzd");
-    }
-
-    protected override void Start()
-    {
-        base.Start();
-
-        _onMap += LaunchOnMapClose;
     }
 }

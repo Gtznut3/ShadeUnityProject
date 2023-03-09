@@ -116,8 +116,11 @@ public class collisionEventZone : MonoBehaviour, AbleToPause
             if (_collectRessourcesIslandScript != null) _collectRessourcesIslandScript.SetIslandObject(colliderTriggered.transform.parent.name);
 
             // Edit island name Text
-            _islandNameScript = GameObject.FindGameObjectWithTag("TextIslandName").GetComponent<updateTextScript>();
-            if (_islandNameScript != null && colliderTriggered != null) _islandNameScript.setTextValue(colliderTriggered.transform.parent.name);
+            if (GameObject.FindGameObjectWithTag("TextIslandName") != null)
+            {
+                _islandNameScript = GameObject.FindGameObjectWithTag("TextIslandName").GetComponent<updateTextScript>();
+                if (_islandNameScript != null && colliderTriggered != null) _islandNameScript.setTextValue(colliderTriggered.transform.parent.name);
+            }
         }
     }
 }

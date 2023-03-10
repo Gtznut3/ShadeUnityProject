@@ -34,24 +34,17 @@ public class upgradeIsland : MonoBehaviour
 
         levelUp = playerIsland.GetComponent<islandLevelUp>();
 
-        Debug.Log("Level " + levelUp.GetIslandLevel());
-        Debug.Log("Coins " + inventoryItems.GetCoin());
-        Debug.Log("Wood " + inventoryItems.GetWood());
-        Debug.Log("Rock " + inventoryItems.GetRock());
-
         if (playerIsland != null)
         {
             if (levelUp.GetIslandLevel() == 0 && inventoryItems.GetCoin() >= 20 && inventoryItems.GetWood() >= 10 && inventoryItems.GetRock() >= 10)
             {
-                Debug.Log("poggers");
                 inventoryItems.UseCoins(20);
                 inventoryItems.UseWood(10);
                 inventoryItems.UseRocks(10);
                 UpgradeIsland();
             }
             else if (levelUp.GetIslandLevel() == 1 && inventoryItems.GetCoin() >= 50 && inventoryItems.GetWood() >= 20 && inventoryItems.GetRock() >= 20)
-            {
-                Debug.Log("poggers");
+            {   
                 inventoryItems.UseCoins(50);
                 inventoryItems.UseWood(20);
                 inventoryItems.UseRocks(20);
@@ -59,7 +52,6 @@ public class upgradeIsland : MonoBehaviour
             }
             else if (levelUp.GetIslandLevel() == 2 && inventoryItems.GetCoin() >= 100 && inventoryItems.GetWood() >= 50 && inventoryItems.GetRock() >= 50)
             {
-                Debug.Log("poggers");
                 inventoryItems.UseCoins(100);
                 inventoryItems.UseWood(50);
                 inventoryItems.UseRocks(50);
@@ -67,7 +59,6 @@ public class upgradeIsland : MonoBehaviour
             }
             else if (levelUp.GetIslandLevel() == 3 && inventoryItems.GetCoin() >= 200 && inventoryItems.GetWood() >= 100 && inventoryItems.GetRock() >= 100)
             {
-                Debug.Log("poggers");
                 inventoryItems.UseCoins(200);
                 inventoryItems.UseWood(100);
                 inventoryItems.UseRocks(100);
@@ -80,7 +71,6 @@ public class upgradeIsland : MonoBehaviour
     private void UpgradeIsland()
     {
         levelUp.Upgrade();
-        Debug.Log(levelUp.transform.parent.gameObject.name);
         levelUp.gameObject.SetActive(false);
         levelUp.transform.parent.gameObject.SetActive(false);
     }

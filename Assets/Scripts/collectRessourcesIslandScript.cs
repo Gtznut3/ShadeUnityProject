@@ -25,6 +25,7 @@ public class collectRessourcesIslandScript : MonoBehaviour, AbleToPause
     private islandWoodScript islandWood;
     private islandRockScript islandRock;
     private islandHumanScript islandHuman;
+    private OnAnimeRessource OnAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,7 @@ public class collectRessourcesIslandScript : MonoBehaviour, AbleToPause
                 islandWood = islandObject.GetComponent<islandWoodScript>();
                 islandRock = islandObject.GetComponent<islandRockScript>();
                 islandHuman = islandObject.GetComponent<islandHumanScript>();
+                OnAnim = islandObject.GetComponentInChildren<OnAnimeRessource>();
             }
 
             if (islandCoins != null)
@@ -72,6 +74,10 @@ public class collectRessourcesIslandScript : MonoBehaviour, AbleToPause
             {
                 inventoryRessources.AddInventoryHuman(islandHuman.GetNumber());
                 islandHuman.Get();
+            }
+            if (OnAnim != null)
+            {
+                OnAnim.PlayAnimation();
             }
         }
     }

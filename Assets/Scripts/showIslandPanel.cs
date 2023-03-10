@@ -58,11 +58,8 @@ public class showIslandPanel : MonoBehaviour
     {
         if (other.tag == "DockageRessources" || other.gameObject.tag == "DockageCivilisation")
         {
-            if (other.tag == "DockageRessources")
-            {
-                buttonAddHumanGroup.alpha = 0f;
-                buttonAddHumanGroup.interactable = false;
-            }
+            buttonAddHumanGroup.alpha = 0f;
+            buttonAddHumanGroup.interactable = false;
 
             buttonIslandGroup.alpha = 0f;
             buttonIslandGroup.interactable = false;

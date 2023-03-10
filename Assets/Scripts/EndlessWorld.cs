@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UIElements;
 
 public class EndlessWorld : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class EndlessWorld : MonoBehaviour
     [SerializeField] int Size = 240;
     [SerializeField] int SeedValue = 42;
     public Transform PosBoat;
+    [SerializeField] Vector3 positionUpgradeIsland;
     public static Vector2 BoatPosition;
     public static Vector2 SpawnBoatPosition;
     int VisibleDst;
@@ -25,6 +27,10 @@ public class EndlessWorld : MonoBehaviour
         SpawnBoatPosition = new Vector2(PosBoat.position.x, PosBoat.position.z);
         VisibleDst = Mathf.RoundToInt(Size / MaxView);
         Random.InitState(SeedValue);
+
+        GameObject FirstIslandPrefab = Resources.Load<GameObject>("Island First Level");
+
+        Instantiate(FirstIslandPrefab, positionUpgradeIsland, Quaternion.identity);
     }
 
     private void Update()

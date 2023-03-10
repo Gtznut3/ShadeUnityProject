@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +18,9 @@ public class collectRessourcesIslandScript : MonoBehaviour, AbleToPause
     [SerializeField] private string nameIsland;
 
     private GameObject islandObject;
+    private GameObject ship;
 
+    private InventoryRessourcesManagementScript inventoryRessources;
     private islandCoinsScript islandCoins;
     private islandWoodScript islandWood;
     private islandRockScript islandRock;
@@ -29,6 +30,9 @@ public class collectRessourcesIslandScript : MonoBehaviour, AbleToPause
     void Start()
     {
         islandObject = GameObject.Find(nameIsland);
+        ship = GameObject.FindGameObjectWithTag("Player");
+
+        inventoryRessources = ship.GetComponent<InventoryRessourcesManagementScript>();
     }
 
     // Update is called once per frame
@@ -49,11 +53,24 @@ public class collectRessourcesIslandScript : MonoBehaviour, AbleToPause
                 islandHuman = islandObject.GetComponent<islandHumanScript>();
             }
 
-            if (islandCoins != null) islandCoins.Get();
-            if (islandWood != null) islandWood.Get();
-            if (islandRock != null) islandRock.Get();
+            if (islandCoins != null)
+            {
+                inventoryRessources.AddInventoryCoins(islandCoins.GetNumber());
+                islandCoins.Get();
+            }
+            if (islandWood != null)
+            {
+                inventoryRessources.AddInventoryWood(islandWood.GetNumber());
+                islandWood.Get();
+            }
+            if (islandRock != null)
+            {
+                inventoryRessources.AddInventoryRock(islandRock.GetNumber());
+                islandRock.Get();
+            }
             if (islandHuman != null)
             {
+                inventoryRessources.AddInventoryHuman(islandHuman.GetNumber());
                 islandHuman.Get();
             }
         }

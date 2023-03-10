@@ -22,7 +22,6 @@ public class ressourcesScript : MonoBehaviour
 
     public void Get()
     {
-        Debug.Log("you get " + (int)number + " ");
         number -= (int)number;
     }
 

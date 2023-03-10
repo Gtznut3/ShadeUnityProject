@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4352651347214437271}
   - component: {fileID: 5987032687271821294}
   m_Layer: 6
-  m_Name: Boat_Icon
+  m_Name: Ressources_Icon
   m_TagString: Icon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

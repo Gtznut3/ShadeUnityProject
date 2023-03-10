@@ -17,7 +17,7 @@ public class PauseScript : Singleton<PauseScript>
         base.Start();
 
         canvasPause = GameObject.Find("PauseMenuCanvas");
-        canvasPause.SetActive(false);
+        if (canvasPause != null) canvasPause.SetActive(false);
 
 
         EventManager.Instance.OnMap += Pause;
@@ -35,7 +35,6 @@ public class PauseScript : Singleton<PauseScript>
 
     public void Pause()
     {
-        Debug.Log("pause");
         allObjects = FindObjectsOfType<GameObject>();
         isPause = !isPause;
 

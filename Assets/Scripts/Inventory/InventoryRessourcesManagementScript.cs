@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class InventoryRessourcesManagementScript : MonoBehaviour
 {
-    private int coins, woods, rocks;
+    private int coins, woods, rocks, humans;
 
     private GameObject inventory;
 
     private inventoryCoinsDisplay numberOfCoins;
     private inventoryWoodDisplay numberOfWoods;
     private inventoryRockDisplay numberOfRocks;
+    private updateTextScript numberOfHuman;
 
     // Start is called before the first frame update
     void Start()
@@ -20,47 +21,80 @@ public class InventoryRessourcesManagementScript : MonoBehaviour
         numberOfCoins = inventory.GetComponentInChildren<inventoryCoinsDisplay>();
         numberOfWoods = inventory.GetComponentInChildren<inventoryWoodDisplay>();
         numberOfRocks = inventory.GetComponentInChildren<inventoryRockDisplay>();
+        numberOfHuman = inventory.GetComponentInChildren<updateTextScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void AddInventoryCoins(int value)
     {
         coins += value;
-        Debug.Log("you get " + coins + " Coins");
-        setInventoryCoins();
+        numberOfCoins.setTextValue(coins.ToString());
     }
 
     public void AddInventoryWood(int value)
     {
         woods += value;
-        Debug.Log("you get " + woods + " Woods");
-        setInventoryWood();
+        numberOfWoods.setTextValue(woods.ToString());
     }
 
     public void AddInventoryRock(int value)
     {
         rocks += value;
-        Debug.Log("you get " + rocks + " Rocks");
-        setInventoryRock();
+        numberOfRocks.setTextValue(rocks.ToString());
     }
 
-    public void setInventoryCoins()
+    public void AddInventoryHuman(int value)
     {
+        humans += value;
+        numberOfHuman.setTextValue(humans.ToString());
+    }
+
+    public void UseCoins(int value)
+    {
+        coins -= value;
         numberOfCoins.setTextValue(coins.ToString());
     }
 
-    public void setInventoryWood()
+    public void UseWood(int value)
     {
+        woods -= value;
         numberOfWoods.setTextValue(woods.ToString());
     }
 
-    public void setInventoryRock()
+    public void UseRocks(int value)
     {
+        rocks -= value;
         numberOfRocks.setTextValue(rocks.ToString());
+    }
+
+    public void UseHuman(int value)
+    {
+        humans -= value;
+        numberOfHuman.setTextValue(humans.ToString());
+    }
+
+    public int GetCoin()
+    {
+        return coins;
+    }
+
+    public int GetWood()
+    {
+        return woods;
+    }
+
+    public int GetRock()
+    {
+        return rocks;
+    }
+
+    public int GetSlave()
+    {
+        return humans;
     }
 }

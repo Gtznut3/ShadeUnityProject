@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7015436747296370039}
   - component: {fileID: 5827768176495732297}
   m_Layer: 6
-  m_Name: Boat_Icon
+  m_Name: Civilisation_Icon
   m_TagString: Icon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

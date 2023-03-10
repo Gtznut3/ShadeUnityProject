@@ -53,10 +53,18 @@ public class MapManager : Engine.Utils.Singleton<MapManager>
             {
                 if (mapIsOpen)
                 {
-                    icon.rectTransform.localScale *= 2f;
+                    if (icon.name == "Boat_Icon")
+                        icon.rectTransform.localScale *= 6f;
+                    else
+                        icon.rectTransform.localScale *= 3f;
                 }
-                else 
-                    icon.rectTransform.localScale *= 0.5f;
+                else
+                {
+                    if (icon.name == "Boat_Icon")
+                        icon.rectTransform.localScale /= 6f;
+                    else
+                        icon.rectTransform.localScale /= 3f;
+                }
             }
 
             lastShowMap = Time.time;

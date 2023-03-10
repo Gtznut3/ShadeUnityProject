@@ -32,6 +32,8 @@ public class islandLevelUp : MonoBehaviour
     
     public void Upgrade()
     {
+        Debug.Log("sheesh");
+
         if (islandLevel == 0)
         {
             islandLevel += 1;

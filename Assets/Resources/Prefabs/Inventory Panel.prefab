@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 6253662919037207120}
   - component: {fileID: 6253662919037207125}
   - component: {fileID: 6253662919037207126}
-  - component: {fileID: 8679955272973658575}
+  - component: {fileID: 6253662919037207127}
   m_Layer: 5
   m_Name: CoinNumber
   m_TagString: Untagged
@@ -266,7 +266,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
---- !u!114 &8679955272973658575
+--- !u!114 &6253662919037207127
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -275,10 +275,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6253662919037207121}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4601378ccc4c474cbe5cc08cda42a64, type: 3}
+  m_Script: {fileID: 11500000, guid: bbfefd300d1d4004cb49d4d3a733643a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
 --- !u!1 &6253662919146512181
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +445,7 @@ GameObject:
   - component: {fileID: 6253662919251728848}
   - component: {fileID: 6253662919251728853}
   - component: {fileID: 6253662919251728854}
-  - component: {fileID: 317687766359600801}
+  - component: {fileID: 6253662919251728855}
   m_Layer: 5
   m_Name: WoodNumber
   m_TagString: Untagged
@@ -516,7 +515,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
---- !u!114 &317687766359600801
+--- !u!114 &6253662919251728855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -525,10 +524,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6253662919251728849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4601378ccc4c474cbe5cc08cda42a64, type: 3}
+  m_Script: {fileID: 11500000, guid: d0dba75f214df9143a450c89348b1911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
 --- !u!1 &6253662919386399577
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,7 +538,7 @@ GameObject:
   - component: {fileID: 6253662919386399576}
   - component: {fileID: 6253662919386399581}
   - component: {fileID: 6253662919386399582}
-  - component: {fileID: 5500443062610835014}
+  - component: {fileID: 6253662919386399583}
   m_Layer: 5
   m_Name: RockNumber
   m_TagString: Untagged
@@ -610,7 +608,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
---- !u!114 &5500443062610835014
+--- !u!114 &6253662919386399583
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -619,10 +617,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6253662919386399577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4601378ccc4c474cbe5cc08cda42a64, type: 3}
+  m_Script: {fileID: 11500000, guid: 01b648495cf9f5746a3015887cc2d4c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
 --- !u!1 &6253662919487131949
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +937,7 @@ GameObject:
   - component: {fileID: 6253662919813964612}
   - component: {fileID: 6253662919813964617}
   - component: {fileID: 6253662919813964618}
-  - component: {fileID: 7439225078090414443}
+  - component: {fileID: 6253662919813964616}
   m_Layer: 5
   m_Name: HumanNumber
   m_TagString: Untagged
@@ -1010,7 +1007,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
---- !u!114 &7439225078090414443
+--- !u!114 &6253662919813964616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

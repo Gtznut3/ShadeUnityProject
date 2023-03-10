@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5579957666793055033}
   - component: {fileID: 7015436747296370039}
   - component: {fileID: 5827768176495732297}
+  - component: {fileID: 5949130357582103689}
   m_Layer: 6
   m_Name: Civilisation_Icon
   m_TagString: Icon
@@ -76,6 +77,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5949130357582103689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3191487054712495596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1584b41b58235844ca02b320520d013b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5533258620550528954
 GameObject:
   m_ObjectHideFlags: 0
@@ -3384,6 +3397,7 @@ MonoBehaviour:
   numberMax: 10
   number: 0
   timeNumberMax: 0
+  baseTimeNumberMax: 0
 --- !u!1 &9101239539290177699
 GameObject:
   m_ObjectHideFlags: 0

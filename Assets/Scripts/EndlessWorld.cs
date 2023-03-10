@@ -23,7 +23,6 @@ public class EndlessWorld : MonoBehaviour
 
     void Start()
     {
-        SeedValue = Random.Range(0, 100);
         //Mathf.PerlinNoise()
         SpawnBoatPosition = new Vector2(PosBoat.position.x, PosBoat.position.z);
         VisibleDst = Mathf.RoundToInt(Size / MaxView);
@@ -111,10 +110,10 @@ public class EndlessWorld : MonoBehaviour
 
             switch(Random.Range(0, 500))
             {
-                case >495:
+                case >497:
                     CreatIslandHuman(NbrIslandCivilisation);
                     break;
-                case <1:
+                case <2:
                     CreatIslandRessource(NbrIslandRessource);
                     break;
                 case <20:

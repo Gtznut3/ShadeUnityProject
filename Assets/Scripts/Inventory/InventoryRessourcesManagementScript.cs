@@ -8,14 +8,9 @@ public class InventoryRessourcesManagementScript : MonoBehaviour
 
     private GameObject inventory;
 
-    [SerializeField] private GameObject coinNumberObject;
-    [SerializeField] private GameObject woodNumberObject;
-    [SerializeField] private GameObject rockNumberObject;
-    [SerializeField] private GameObject humanNumberObject;
-
-    private updateTextScript numberOfCoins;
-    private updateTextScript numberOfWoods;
-    private updateTextScript numberOfRocks;
+    private inventoryCoinsDisplay numberOfCoins;
+    private inventoryWoodDisplay numberOfWoods;
+    private inventoryRockDisplay numberOfRocks;
     private updateTextScript numberOfHuman;
 
     // Start is called before the first frame update
@@ -23,10 +18,10 @@ public class InventoryRessourcesManagementScript : MonoBehaviour
     {
         inventory = GameObject.FindGameObjectWithTag("Inventory");
 
-        numberOfCoins = coinNumberObject.GetComponent<updateTextScript>();
-        numberOfWoods = woodNumberObject.GetComponent<updateTextScript>();
-        numberOfRocks = rockNumberObject.GetComponent<updateTextScript>();
-        numberOfHuman = humanNumberObject.GetComponent<updateTextScript>();
+        numberOfCoins = inventory.GetComponentInChildren<inventoryCoinsDisplay>();
+        numberOfWoods = inventory.GetComponentInChildren<inventoryWoodDisplay>();
+        numberOfRocks = inventory.GetComponentInChildren<inventoryRockDisplay>();
+        numberOfHuman = inventory.GetComponentInChildren<updateTextScript>();
     }
 
     // Update is called once per frame
@@ -79,6 +74,7 @@ public class InventoryRessourcesManagementScript : MonoBehaviour
 
     public void UseHuman(int value)
     {
+        Debug.Log(value);
         humans -= value;
         numberOfHuman.setTextValue(humans.ToString());
     }

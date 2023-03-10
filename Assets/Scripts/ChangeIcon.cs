@@ -28,7 +28,6 @@ public class ChangeIcon : MonoBehaviour
 
     public void ChangeIconTexture(Sprite sprite)
     {
-        Debug.Log(GetComponent<Image>().mainTexture);
         GetComponent<Image>().sprite = sprite;
     }
 }

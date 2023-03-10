@@ -611,6 +611,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1017422476639873879}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &684804376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6253662919251728849, guid: 0b4e997469fc38f4092adc719c97f596,
+    type: 3}
+  m_PrefabInstance: {fileID: 244118253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &732220915 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6036529931441386019, guid: d740dfb0fc357fb459554147ac39e93f,
@@ -1406,6 +1412,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1644524689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6253662919037207121, guid: 0b4e997469fc38f4092adc719c97f596,
+    type: 3}
+  m_PrefabInstance: {fileID: 244118253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1678584875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1483,6 +1495,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f855683b127eede4c9d170be2672ae27, type: 3}
+--- !u!1 &1705677251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6253662919813964613, guid: 0b4e997469fc38f4092adc719c97f596,
+    type: 3}
+  m_PrefabInstance: {fileID: 244118253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1877743969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,6 +1533,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1916228707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6253662919386399577, guid: 0b4e997469fc38f4092adc719c97f596,
+    type: 3}
+  m_PrefabInstance: {fileID: 244118253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1987550376 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1205614443198496, guid: f855683b127eede4c9d170be2672ae27,
@@ -1691,6 +1715,10 @@ MonoBehaviour:
   woods: 0
   rocks: 0
   humans: 0
+  coinNumberObject: {fileID: 1644524689}
+  woodNumberObject: {fileID: 684804376}
+  rockNumberObject: {fileID: 1916228707}
+  humanNumberObject: {fileID: 1705677251}
 --- !u!1 &1997814416 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1017422478031065543, guid: d740dfb0fc357fb459554147ac39e93f,

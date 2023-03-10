@@ -29,7 +29,12 @@ public class collisionEventZone : MonoBehaviour, AbleToPause
     islandRockScript _rockIslandScript;
     islandWoodScript _woodIslandScript;
     islandHumanScript _humanIslandScript;
+    HumanOnIslandScript _humanOnIsland;
     collectRessourcesIslandScript _collectRessourcesIslandScript;
+    DeposeHumans _deposeHumansScript;
+
+    private GameObject ship;
+    InventoryRessourcesManagementScript inventoryItems;
 
     GameObject[] listTextRessources;
 
@@ -71,11 +76,13 @@ public class collisionEventZone : MonoBehaviour, AbleToPause
     {
         if (colliderTriggered != null)
         {
+            _humanOnIsland = colliderTriggered.gameObject.GetComponentInParent<HumanOnIslandScript>();
             _coinsIslandScript = colliderTriggered.gameObject.GetComponentInParent<islandCoinsScript>();
             _rockIslandScript = colliderTriggered.gameObject.GetComponentInParent<islandRockScript>();
             _woodIslandScript = colliderTriggered.gameObject.GetComponentInParent<islandWoodScript>();
             _humanIslandScript = colliderTriggered.gameObject.GetComponentInParent<islandHumanScript>();
 
+            bool slave = true;
             bool coins = true;
             bool rocks = true;
             bool woods = true;
@@ -85,7 +92,12 @@ public class collisionEventZone : MonoBehaviour, AbleToPause
             {
                 _textScript = listTextRessources[i].GetComponentInChildren<updateTextScript>();
 
-                if (coins && _textScript != null && _coinsIslandScript != null)
+                if (slave && _textScript != null && _humanOnIsland != null)
+                {
+                    _textScript.setTextValue("Worker : " + _humanOnIsland.GetSlave());
+                    slave = false;
+                }
+                else if (coins && _textScript != null && _coinsIslandScript != null)
                 {
                     _textScript.setTextValue("Coins : " + _coinsIslandScript.GetNumber().ToString());
                     coins = false;
@@ -111,9 +123,13 @@ public class collisionEventZone : MonoBehaviour, AbleToPause
                 }
             }
 
-            // Edit Button Link To Island
+            // Edit Button Link Collect ressources from the Island
             _collectRessourcesIslandScript = _islandPanel.GetComponentInChildren<collectRessourcesIslandScript>();
             if (_collectRessourcesIslandScript != null) _collectRessourcesIslandScript.SetIslandObject(colliderTriggered.transform.parent.name);
+
+            // Edit button link to leave human on island 
+            _deposeHumansScript = _islandPanel.GetComponentInChildren<DeposeHumans>();
+            if (_deposeHumansScript != null) _deposeHumansScript.SetIslandObject(colliderTriggered.transform.parent.name);
 
             // Edit island name Text
             if (GameObject.FindGameObjectWithTag("TextIslandName") != null)

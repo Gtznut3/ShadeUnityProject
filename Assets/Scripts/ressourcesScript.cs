@@ -8,8 +8,8 @@ public class ressourcesScript : MonoBehaviour
     [SerializeField] protected float number;
     [SerializeField] protected float timeNumberMax;
     [SerializeField] protected float baseTimeNumberMax;
-    [SerializeField] protected int humanOnIsland;
-    [SerializeField] protected int humanMaxOnIsland;
+
+    protected HumanOnIslandScript humanOnIsland;
 
     // Start is called before the first frame update
     virtual public void Awake()
@@ -32,11 +32,6 @@ public class ressourcesScript : MonoBehaviour
     {
         if (number + coin > numberMax) number = numberMax;
         else number += coin;
-    }
-
-    public void AddHuman(int slave)
-    {
-        humanOnIsland += slave;
     }
 
     public float GetMax()

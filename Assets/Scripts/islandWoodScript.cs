@@ -24,9 +24,10 @@ public class islandWoodScript : ressourcesScript, AbleToPause
     // Update is called once per frame
     override public void Update()
     {
-        timeNumberMax = baseTimeNumberMax * (humanMaxOnIsland + 1 - humanOnIsland) / 10f;
-
-        if (!isPause)
+        humanOnIsland = GetComponent<HumanOnIslandScript>();
+     
+        timeNumberMax = baseTimeNumberMax * (humanOnIsland.GetSlaveMax() + 1 - humanOnIsland.GetSlave()) / 10f;
+        if (!isPause && humanOnIsland.GetSlave() > 0)
         {
             float woodGet = numberMax * Time.deltaTime / timeNumberMax;
             if (number < numberMax) Add(woodGet);

@@ -74,6 +74,7 @@ public class InventoryRessourcesManagementScript : MonoBehaviour
 
     public void UseHuman(int value)
     {
+        Debug.Log(value);
         humans -= value;
         numberOfHuman.setTextValue(humans.ToString());
     }

@@ -611,6 +611,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1017422476639873879}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &732220915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6036529931441386019, guid: d740dfb0fc357fb459554147ac39e93f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1017422476639873879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &749868726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,6 +1673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   islandObject: {fileID: 1997814416}
   buttonIslandObject: {fileID: 660404408}
+  buttonAddHumanObject: {fileID: 732220915}
   buttonUpgradeObject: {fileID: 2020974618}
 --- !u!114 &1987550389
 MonoBehaviour:

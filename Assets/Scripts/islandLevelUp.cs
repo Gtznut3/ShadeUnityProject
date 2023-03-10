@@ -62,7 +62,6 @@ public class islandLevelUp : MonoBehaviour
 
     public int GetIslandLevel()
     {
-        Debug.Log(islandLevel);
         return islandLevel;
     }
 }

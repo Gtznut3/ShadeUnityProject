@@ -24,9 +24,10 @@ public class islandRockScript : ressourcesScript, AbleToPause
     // Update is called once per frame
     override public void Update()
     {
-        timeNumberMax = baseTimeNumberMax * (humanMaxOnIsland + 1 - humanOnIsland) / 10f;
+        humanOnIsland = GetComponent<HumanOnIslandScript>();
 
-        if (!isPause)
+        timeNumberMax = baseTimeNumberMax * (humanOnIsland.GetSlaveMax() + 1 - humanOnIsland.GetSlave()) / 10f;
+        if (!isPause && humanOnIsland.GetSlave() > 0)
         {
             float rockGet = numberMax * Time.deltaTime / timeNumberMax;
             if (number < numberMax) Add(rockGet);

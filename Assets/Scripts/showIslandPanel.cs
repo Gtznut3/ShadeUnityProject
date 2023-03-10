@@ -11,6 +11,9 @@ public class showIslandPanel : MonoBehaviour
     [SerializeField] GameObject buttonIslandObject;
     CanvasGroup buttonIslandGroup;
 
+    [SerializeField] GameObject buttonAddHumanObject;
+    CanvasGroup buttonAddHumanGroup;
+
     [SerializeField] GameObject buttonUpgradeObject;
     CanvasGroup buttonUpgradeGroup;
 
@@ -23,12 +26,24 @@ public class showIslandPanel : MonoBehaviour
             islandCanvasGroup.alpha = 1f;
             buttonIslandGroup.alpha = 1f;
             buttonIslandGroup.interactable = true;
+
+            if (other.tag == "DockageRessources")
+            {
+                buttonAddHumanGroup.alpha = 1f;
+                buttonAddHumanGroup.interactable = true;
+            }
         }
         else if (other.gameObject.tag == "EventZoneRessources" || other.gameObject.tag == "EventZoneCivilisation")
         {
             islandCanvasGroup.alpha = 1f;
             buttonIslandGroup.alpha = 0f;
             buttonIslandGroup.interactable = false;
+
+            if (other.tag == "EventZoneRessources")
+            {
+                buttonAddHumanGroup.alpha = 0f;
+                buttonAddHumanGroup.interactable = false;
+            }
 
             islandObject.SetActive(true);
         }
@@ -43,6 +58,12 @@ public class showIslandPanel : MonoBehaviour
     {
         if (other.tag == "DockageRessources" || other.gameObject.tag == "DockageCivilisation")
         {
+            if (other.tag == "DockageRessources")
+            {
+                buttonAddHumanGroup.alpha = 0f;
+                buttonAddHumanGroup.interactable = false;
+            }
+
             buttonIslandGroup.alpha = 0f;
             buttonIslandGroup.interactable = false;
 
@@ -50,6 +71,7 @@ public class showIslandPanel : MonoBehaviour
         }
         else if (other.tag == "EventZoneRessources" || other.gameObject.tag == "EventZoneCivilisation")
         {
+
             islandCanvasGroup.alpha = 0f;
             islandObject.SetActive(false);
         }
@@ -69,6 +91,9 @@ public class showIslandPanel : MonoBehaviour
         buttonUpgradeGroup = buttonUpgradeObject.GetComponent<CanvasGroup>();
         buttonUpgradeGroup.interactable = false;
         buttonUpgradeGroup.alpha = 0f;
+
+        buttonAddHumanGroup = buttonAddHumanObject.GetComponent<CanvasGroup>();
+        buttonAddHumanGroup.interactable = false;
     }
 
     // Update is called once per frame

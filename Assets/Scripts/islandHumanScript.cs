@@ -6,7 +6,7 @@ public class islandHumanScript : ressourcesScript
 {
 
     // Start is called before the first frame update
-    override public void Start()
+    override public void Awake()
     {
         number = numberMax;
     }

@@ -17,13 +17,15 @@ public class islandWoodScript : ressourcesScript, AbleToPause
         isPause = true;
     }
     // Start is called before the first frame update
-    override public void Start()
+    override public void Awake()
     {
     }
 
     // Update is called once per frame
     override public void Update()
     {
+        timeNumberMax = baseTimeNumberMax * (humanMaxOnIsland + 1 - humanOnIsland) / 10f;
+
         if (!isPause)
         {
             float woodGet = numberMax * Time.deltaTime / timeNumberMax;

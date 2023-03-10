@@ -93,7 +93,7 @@ public class movementBoatScript : MonoBehaviour, AbleToPause
 
     private void movement()
     {
-        _movementScript.MoveForward(_movementSpeed * _movementForwardStat);
+        _movementScript.MoveForward(_movementSpeed * _movementForwardStat * _movementForwardStat);
         if (_movementForwardStat > 0) _movementScript.MyRotate(0, _movementSideStat, 0);
     }
 }

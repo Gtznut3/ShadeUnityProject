@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryRessourcesManagementScript : MonoBehaviour
 {
-    private int coins, woods, rocks, humans;
+    [SerializeField] private int coins, woods, rocks, humans;
 
     private GameObject inventory;
 

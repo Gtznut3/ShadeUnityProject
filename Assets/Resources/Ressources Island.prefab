@@ -932,7 +932,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberMax: 30
   number: 0
-  timeNumberMax: 60
+  timeNumberMax: 0
+  baseTimeNumberMax: 60
+  humanOnIsland: 1
+  humanMaxOnIsland: 100
 --- !u!114 &9056709516855426564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,7 +950,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberMax: 30
   number: 0
-  timeNumberMax: 60
+  timeNumberMax: 0
+  baseTimeNumberMax: 60
+  humanOnIsland: 1
+  humanMaxOnIsland: 100
 --- !u!114 &9056709516855426567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -962,7 +968,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberMax: 50
   number: 0
-  timeNumberMax: 60
+  timeNumberMax: 0
+  baseTimeNumberMax: 60
+  humanOnIsland: 1
+  humanMaxOnIsland: 100
 --- !u!1 &9056709517015183253
 GameObject:
   m_ObjectHideFlags: 0
